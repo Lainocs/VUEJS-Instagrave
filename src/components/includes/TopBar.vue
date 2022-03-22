@@ -5,10 +5,14 @@
                 <router-link to="/"><img src="@/assets/logo.png" alt="logo" class="w-56"></router-link>
             </div>
             <ul class="w-48">
-                <li><router-link to="/">Feed</router-link></li> |
-                <li><router-link to="/subs">Subs</router-link></li>
+                <li><router-link to="/">Feed</router-link></li>
+                <li v-if="user_data.role"> | </li>
+                <li v-if="user_data.role"><router-link to="/subs">Subs</router-link></li>
             </ul>
-            <ul class="w-48">
+            <ul v-if="user_data.role">
+                <li class="rounded p-3"><button style="color: #2c3e50;" class="font-bold" @click="signOut">Sign Out</button></li>
+            </ul>
+            <ul class="w-48" v-else>
                 <li class="rounded p-3"><router-link to="/signIn">Sign In</router-link></li>
                 <li class="hover:bg-green-300 bg-green-400 rounded p-3 transition"><router-link to="/signUp">Sign Up</router-link></li>
             </ul>
@@ -16,8 +20,27 @@
     </div>
 </template>
 <script>
+    import { mapState } from "vuex"
+    import { mapActions } from "vuex";
+
     export default {
         name: 'TopBar',
+        computed: {
+            ...mapState('user', ['user_data']),
+        },
+        methods: {
+            ...mapActions('user', ["setUser"]),
+            async signOut() {
+                const { error } = await this.$supabase.auth.signOut();
+                if (error) {
+                    console.log(error);
+                } else {
+                    this.setUser({});
+                    this.$router.push('/');
+                }
+
+            },
+        },
     }
 </script>
 
@@ -41,7 +64,7 @@
 
             ul {
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
                 list-style: none;
                 gap: 30px;
             }
