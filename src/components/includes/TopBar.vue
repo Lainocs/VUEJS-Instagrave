@@ -2,17 +2,15 @@
     <div class="topbar">
         <nav>
             <div class="w-48">
-                <img src="@/assets/logo.png" alt="logo" class="w-56">
+                <router-link to="/"><img src="@/assets/logo.png" alt="logo" class="w-56"></router-link>
             </div>
             <ul class="w-48">
                 <li><router-link to="/">Feed</router-link></li> |
-                <div>
-                    <li><router-link to="/profile">Profile</router-link></li>
-                </div>
+                <li><router-link to="/subs">Subs</router-link></li>
             </ul>
             <ul class="w-48">
                 <li class="rounded p-3"><router-link to="/signIn">Sign In</router-link></li>
-                <li class="hover:bg-green-500 bg-green-300 rounded p-3 transition"><router-link to="/signUp" class="text-white" >Sign Up</router-link></li>
+                <li class="hover:bg-green-300 bg-green-400 rounded p-3 transition"><router-link to="/signUp">Sign Up</router-link></li>
             </ul>
         </nav>
     </div>

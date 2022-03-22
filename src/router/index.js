@@ -10,9 +10,24 @@ const routes = [
     component: () => import('@/views/FeedView.vue')
   },
   {
+    path: '/subs',
+    name: 'subs',
+    component: () => import('@/views/SubsView.vue')
+  },
+  {
     path: '/profile',
     name: 'profile',
     component: () => import('@/views/ProfileView.vue')
+  },
+  {
+    path: '/signIn',
+    name: 'signIn',
+    component: () => import('@/views/Auth/SignInView.vue')
+  },
+  {
+    path: '/signUp',
+    name: 'signUp',
+    component: () => import('@/views/Auth/SignUpView.vue')
   }
 ]
 
