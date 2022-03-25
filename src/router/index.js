@@ -12,7 +12,7 @@ const routes = [
     name: 'feed',
     component: () => import('@/views/FeedView.vue'),
     meta: {
-      requiresAuth: false
+      requiresAuth: true
     }
   },
   {
@@ -61,7 +61,7 @@ router.beforeEach((to, from, next) => {
 
   if(to.name == 'signIn' || to.name == 'signUp') {
     if(has_user) {
-      next('/subs');
+      next('/');
     } else {
       next();
     }

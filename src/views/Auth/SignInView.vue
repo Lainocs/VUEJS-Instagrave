@@ -58,7 +58,7 @@
           });
           if (user) {
             this.setUser(user);
-            this.$router.push('/subs')
+            this.$router.push('/')
           }
           else if (error) {
             console.log(error);

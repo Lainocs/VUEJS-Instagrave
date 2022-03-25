@@ -6,8 +6,8 @@
             </div>
             <ul class="w-48">
                 <li><router-link to="/">Feed</router-link></li>
-                <li v-if="user_data.role"> | </li>
-                <li v-if="user_data.role"><router-link to="/subs">Subs</router-link></li>
+                <!-- <li v-if="user_data.role"> | </li> -->
+                <!-- <li v-if="user_data.role"><router-link to="/subs">Subs</router-link></li> -->
             </ul>
             <ul v-if="user_data.role">
                 <li class="rounded p-3"><button style="color: #2c3e50;" class="font-bold" @click="signOut">Sign Out</button></li>
@@ -20,8 +20,7 @@
     </div>
 </template>
 <script>
-    import { mapState } from "vuex"
-    import { mapActions } from "vuex";
+    import { mapState, mapActions } from "vuex"
 
     export default {
         name: 'TopBar',

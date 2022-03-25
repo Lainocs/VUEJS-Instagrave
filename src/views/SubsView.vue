@@ -1,6 +1,7 @@
 <template>
     <div class="home">
         <div class=" shadow w-3/4 h-screen mx-auto p-1 text-center">
+            <h2 class="font-bold border-4">IN CONSTRUCTION</h2>
             <div v-for="post in posts" :key="post.id"
                 class="w-2/4 my-12 mx-auto h-32 bg-gray-200 flex flex-col items-center justify-center">
                 <h3>{{post.user_id}}</h3>
