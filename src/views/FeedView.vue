@@ -13,7 +13,7 @@
           <h3>{{post.user_email}}</h3>
           <button v-if="user_data.id != post.user_id" @click="subAccount(post.user_id)">Sub to account</button>
         </div>
-        <input v-if="user_data.id == post.user_id" type="text" v-model="post.text" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block min-h-full w-full sm:text-sm border border-gray-300 rounded-md" placeholder="My first post...">
+        <textarea v-if="user_data.id == post.user_id" type="text" v-model="post.text" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block min-h-full w-full sm:text-sm border border-gray-300 rounded-md" placeholder="My first post..."></textarea>
         <p v-else class="bg-gray-100 shadow-sm mt-1 block min-h-full w-full sm:text-sm border border-gray-300 rounded-md" placeholder="My first post...">{{post.text}}</p>
         <div v-if="post.user_id == user_data.id" class="flex gap-5">
           <button @click="deletePost(post)">Delete</button>
