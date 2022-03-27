@@ -35,7 +35,7 @@
                     console.log(error);
                 } else {
                     this.setUser({});
-                    this.$router.push('/');
+                    this.$router.push('/signIn');
                 }
 
             },
